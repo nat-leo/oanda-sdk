@@ -1,0 +1,828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://placeholder.io/api/account/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Account Class - Oanda SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C11.33 7.26 11 4.85 11.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C3.78 10 2.87 12.3 3 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.12 6.07-1.6 1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26m-3.16 6.3c-.28.24-.74.5-1.1.6-1.12.4-2.24-.16-2.9-.82 1.19-.28 1.9-1.16 2.11-2.05.17-.8-.15-1.46-.28-2.23-.12-.74-.1-1.37.17-2.06.19.38.39.76.63 1.06.77 1 1.98 1.44 2.24 2.8.04.14.06.28.06.43.03.82-.33 1.72-.93 2.27M21 13h-2V7h2v6m0 4h-2v-2h2v2Z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#account-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Oanda SDK" class="md-header__button md-logo" aria-label="Oanda SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Oanda SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Account Class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../getting-started/" class="md-tabs__link">
+      Getting Started
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        API
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Oanda SDK" class="md-nav__button md-logo" aria-label="Oanda SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Oanda SDK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client/" class="md-nav__link">
+        Client Class
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Account Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Account Class
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    Defaults
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-client-client" class="md-nav__link">
+    REQUIRED Client(): client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-uri" class="md-nav__link">
+    String: uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_accounts" class="md-nav__link">
+    get_accounts():
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_summary" class="md-nav__link">
+    get_summary()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_instruments" class="md-nav__link">
+    get_instruments()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_changestransaction_id" class="md-nav__link">
+    get_changes(transaction_id)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    Defaults
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-client-client" class="md-nav__link">
+    REQUIRED Client(): client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-uri" class="md-nav__link">
+    String: uri
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_accounts" class="md-nav__link">
+    get_accounts():
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_summary" class="md-nav__link">
+    get_summary()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_instruments" class="md-nav__link">
+    get_instruments()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_changestransaction_id" class="md-nav__link">
+    get_changes(transaction_id)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="account-class">Account Class</h1>
+<p>Class matches up with the <a href="https://developer.oanda.com/rest-live-v20/account-ep/">account endpoint</a> of Oanda. </p>
+<p>Account gets you access to the account numbers available to trade with, a summary of account details, tradeable instruments, and any changes to account holdings.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="import">Import</h3>
+<div class="highlight"><pre><span></span><code>from oanda.account import Account
+</code></pre></div>
+<h3 id="interface">Interface</h3>
+<p>Set these properties in your code.</p>
+<div class="highlight"><pre><span></span><code>Account(
+    client = Client()
+)
+</code></pre></div>
+<p>Call these methods in your code.</p>
+<div class="highlight"><pre><span></span><code>Account().get_accounts()
+Account().get_summary()
+Account().get_instruments()
+Account().get_changes(transaction_id)
+</code></pre></div>
+<h2 id="properties">Properties</h2>
+<h3 id="defaults">Defaults</h3>
+<div class="highlight"><pre><span></span><code>Account(
+    client = REQUIRED
+    uri = &quot;&quot;
+)
+</code></pre></div>
+<h3 id="required-client-client">REQUIRED Client(): client</h3>
+<p>A Client Object is required to create an instance of Account. See the docs for the <a href="../client/">Client Class</a> to learn more.</p>
+<h3 id="string-uri">String: uri</h3>
+<p><div class="highlight"><pre><span></span><code>Account().uri = &quot;&quot;
+</code></pre></div>
+<strong>Don't touch this:</strong> uri is meant to store the uri path after the main url. One of the reasons for this property is to test complete urls and reduce the number 400 Malformed Requests, which are difficult to test.</p>
+<p>This property gets set by all of the Account Methods and only replaces the uri after method calls, so uri holds the uri of the most recently called method.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="get_accounts">get_accounts():</h3>
+<p>Takes no arguments.</p>
+<p>Calling the method returns a <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response">requests.Response</a> object:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account = Account(client).get_accounts()
+&lt;Response [200]&gt;
+</code></pre></div></p>
+<p>The status code for the REST API call can be accessed as an integer as well:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_accounts().status_code
+200
+</code></pre></div></p>
+<p>Get the list of accounts in JSON format:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_accounts().json()
+{&#39;accounts&#39;: [{&#39;id&#39;: &#39;000-000-0000000-000&#39;, &#39;tags&#39;: []}]}
+</code></pre></div></p>
+<h3 id="get_summary">get_summary()</h3>
+<p>Get the account summary of the client.</p>
+<p>Takes no arguments</p>
+<p>Returns a <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response">requests.Response</a> object from the Requests library:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account = Account(client).get_summary()
+&lt;Response [200]&gt;
+</code></pre></div></p>
+<p>The status code for the REST API call can be accessed as an integer as follows:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_summary().status_code
+200
+</code></pre></div>
+Get the summary for the account as JSON:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_summary().json()
+{&#39;account&#39;: 
+    {
+        &#39;guaranteedStopLossOrderMode&#39;: &#39;DISABLED&#39;, 
+        &#39;hedgingEnabled&#39;: False, 
+        &#39;id&#39;: &#39;000-000-0000000-000&#39;, 
+        &#39;createdTime&#39;: &#39;2019-07-25T19:56:49.578908772Z&#39;, 
+        &#39;currency&#39;: &#39;USD&#39;, 
+        &#39;createdByUserID&#39;: &#39;0000000&#39;, 
+        &#39;alias&#39;: &#39;Primary&#39;, 
+        &#39;marginRate&#39;: &#39;0.02&#39;, 
+        &#39;lastTransactionID&#39;: &#39;35502&#39;, 
+        &#39;balance&#39;: &#39;1127.4641&#39;, 
+        &#39;openTradeCount&#39;: 0, 
+        &#39;openPositionCount&#39;: 0, 
+        &#39;pendingOrderCount&#39;: 0, 
+        &#39;pl&#39;: &#39;-345.0344&#39;, 
+        &#39;resettablePL&#39;: &#39;-345.0344&#39;, 
+        &#39;resettablePLTime&#39;: &#39;0&#39;, 
+        &#39;financing&#39;: &#39;-436.7715&#39;, 
+        &#39;commission&#39;: &#39;0.0000&#39;, 
+        &#39;dividendAdjustment&#39;: &#39;0&#39;, 
+        &#39;guaranteedExecutionFees&#39;: &#39;0.0000&#39;, 
+        &#39;unrealizedPL&#39;: &#39;0.0000&#39;, 
+        &#39;NAV&#39;: &#39;1127.4641&#39;, 
+        &#39;marginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginAvailable&#39;: &#39;1127.4641&#39;, 
+        &#39;positionValue&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutUnrealizedPL&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutNAV&#39;: &#39;1127.4641&#39;, 
+        &#39;marginCloseoutMarginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutPositionValue&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutPercent&#39;: &#39;0.00000&#39;, 
+        &#39;withdrawalLimit&#39;: &#39;1127.4641&#39;, 
+        &#39;marginCallMarginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginCallPercent&#39;: &#39;0.00000&#39;
+    }, 
+    &#39;lastTransactionID&#39;: &#39;35502&#39;
+}
+</code></pre></div></p>
+<h3 id="get_instruments">get_instruments()</h3>
+<p>Get an exhaustive list of all tradeable instruments and details.</p>
+<p>Takes no arguments.</p>
+<p>Returns a <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response">requests.Response</a> object from the Requests library:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_instruments()
+&lt;Response [200]&gt;
+</code></pre></div>
+Status codes can be accessed  as an integer:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_instruments().status_code
+200
+</code></pre></div>
+Getting the list of tradeable instruments as JSON:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_instruments().json()
+# trust me you don&#39;t want to see the output
+</code></pre></div></p>
+<h3 id="get_changestransaction_id">get_changes(transaction_id)</h3>
+<p>Get a list of changes in account holdings after and not including a given transaction id, as well as the current state of the account.</p>
+<p>Takes a required transaction_id as a string.</p>
+<p>Returns a <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response">requests.Response</a> object from the Requests library:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_changes(&quot;35502&quot;)
+&lt;Response [200]&gt;
+</code></pre></div>
+Status codes can be accessed  as an integer:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_changes(&quot;35502&quot;).status_code
+200
+</code></pre></div>
+Getting the list of changes and account state as JSON:
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; account.get_changes(&quot;35502&quot;).json()
+{
+    &#39;changes&#39;: {
+        &#39;ordersCreated&#39;: [], 
+        &#39;ordersCancelled&#39;: [], 
+        &#39;ordersFilled&#39;: [], 
+        &#39;ordersTriggered&#39;: [], 
+        &#39;tradesOpened&#39;: [], 
+        &#39;tradesReduced&#39;: [], 
+        &#39;tradesClosed&#39;: [], 
+        &#39;positions&#39;: [], 
+        &#39;transactions&#39;: []
+    }, 
+    &#39;state&#39;: {
+        &#39;unrealizedPL&#39;: &#39;0.0000&#39;, 
+        &#39;NAV&#39;: &#39;1127.4641&#39;, 
+        &#39;marginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginAvailable&#39;: &#39;1127.4641&#39;, 
+        &#39;positionValue&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutUnrealizedPL&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutNAV&#39;: &#39;1127.4641&#39;, 
+        &#39;marginCloseoutMarginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginCloseoutPercent&#39;: &#39;0.00000&#39;, 
+        &#39;withdrawalLimit&#39;: &#39;1127.4641&#39;, 
+        &#39;marginCallMarginUsed&#39;: &#39;0.0000&#39;, 
+        &#39;marginCallPercent&#39;: &#39;0.00000&#39;, 
+        &#39;orders&#39;: [], 
+        &#39;trades&#39;: [], 
+        &#39;positions&#39;: []
+    }, 
+    &#39;lastTransactionID&#39;: &#39;35502&#39;
+}
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../client/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Client Class" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Client Class
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
