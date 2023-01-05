@@ -1,0 +1,24 @@
+site_name: Oanda SDK
+site_url: https://placeholder.io/
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+    - Getting Started: getting-started.md
+    - API:
+        - Overview: api/overview.md
+        - Client Class: api/client.md
+        - Account Class: api/account.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+  icon:
+    admonition:
+      note: material/launch
+      danger: material/fire-alert
+  

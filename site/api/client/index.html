@@ -1,0 +1,878 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://placeholder.io/api/client/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Client Class - Oanda SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C11.33 7.26 11 4.85 11.95 3c-.95.23-1.78.75-2.49 1.32-2.59 2.08-3.61 5.75-2.39 8.9.04.1.08.2.08.33 0 .22-.15.42-.35.5-.23.1-.47.04-.66-.12a.58.58 0 0 1-.14-.17c-1.13-1.43-1.31-3.48-.55-5.12C3.78 10 2.87 12.3 3 14.47c.06.5.12 1 .29 1.5.14.6.41 1.2.71 1.73 1.08 1.73 2.95 2.97 4.96 3.22 2.14.27 4.43-.12 6.07-1.6 1.83-1.66 2.47-4.32 1.53-6.6l-.13-.26c-.21-.46-.77-1.26-.77-1.26m-3.16 6.3c-.28.24-.74.5-1.1.6-1.12.4-2.24-.16-2.9-.82 1.19-.28 1.9-1.16 2.11-2.05.17-.8-.15-1.46-.28-2.23-.12-.74-.1-1.37.17-2.06.19.38.39.76.63 1.06.77 1 1.98 1.44 2.24 2.8.04.14.06.28.06.43.03.82-.33 1.72-.93 2.27M21 13h-2V7h2v6m0 4h-2v-2h2v2Z"/></svg>');}</style>
+
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#client-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Oanda SDK" class="md-header__button md-logo" aria-label="Oanda SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Oanda SDK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Client Class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../getting-started/" class="md-tabs__link">
+      Getting Started
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        API
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Oanda SDK" class="md-nav__button md-logo" aria-label="Oanda SDK" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Oanda SDK
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Client Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Client Class
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-the-client-to-other-classes" class="md-nav__link">
+    Pass the Client to Other Classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    Defaults
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-string-account_id" class="md-nav__link">
+    REQUIRED String: account_id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-string-api_token" class="md-nav__link">
+    REQUIRED String: api_token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-base_url" class="md-nav__link">
+    String: base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-header" class="md-nav__link">
+    Dictionary: header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-is_paper_trading" class="md-nav__link">
+    Boolean: is_paper_trading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_account_id" class="md-nav__link">
+    set_account_id()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_api_token" class="md-nav__link">
+    set_api_token()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_is_paper_trading" class="md-nav__link">
+    set_is_paper_trading()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_header" class="md-nav__link">
+    set_header()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_base_url" class="md-nav__link">
+    set_base_url()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account/" class="md-nav__link">
+        Account Class
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    Import
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interface" class="md-nav__link">
+    Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-the-client-to-other-classes" class="md-nav__link">
+    Pass the Client to Other Classes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+    <nav class="md-nav" aria-label="Properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defaults" class="md-nav__link">
+    Defaults
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-string-account_id" class="md-nav__link">
+    REQUIRED String: account_id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-string-api_token" class="md-nav__link">
+    REQUIRED String: api_token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-base_url" class="md-nav__link">
+    String: base_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-header" class="md-nav__link">
+    Dictionary: header
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean-is_paper_trading" class="md-nav__link">
+    Boolean: is_paper_trading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_account_id" class="md-nav__link">
+    set_account_id()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_api_token" class="md-nav__link">
+    set_api_token()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_is_paper_trading" class="md-nav__link">
+    set_is_paper_trading()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_header" class="md-nav__link">
+    set_header()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_base_url" class="md-nav__link">
+    set_base_url()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="client-class">Client Class</h1>
+<div class="admonition note">
+<p class="admonition-title">Get an Oanda Account</p>
+<p>You need to <a href="https://www.oanda.com/apply/">apply for an Oanda account</a> and get your api token and account number to run any of the code in the Client Class.</p>
+</div>
+<h2 id="usage">Usage</h2>
+<h3 id="import">Import</h3>
+<div class="highlight"><pre><span></span><code>from oanda.client import Client
+</code></pre></div>
+<h3 id="interface">Interface</h3>
+<p>Set these properties in your code.</p>
+<div class="highlight"><pre><span></span><code>client = Client(
+    account_id = DEMO_ACCOUNT_ID, 
+    api_token = DEMO_API_TOKEN,
+    is_paper_trading = True,
+)
+</code></pre></div>
+<p>Call these methods in your code.</p>
+<div class="highlight"><pre><span></span><code>client.set_account_id(LIVE_ACCOUNT_ID)
+client.set_api_token(LIVE_API_TOKEN)
+client.set_is_paper_trading(False)
+</code></pre></div>
+<h3 id="pass-the-client-to-other-classes">Pass the Client to Other Classes</h3>
+<p>The Client class is the first object you need to initialize before using the rest of the sdk, and it gets passed to the other classes like so:
+<div class="highlight"><pre><span></span><code>client = Client()
+account = Account(client)
+</code></pre></div></p>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Not Setting Account Information</p>
+<p>The example above will break when the Account Class tries to call any of its methods. Be sure both account_id AND api_token are set. </p>
+</div>
+<h2 id="properties">Properties</h2>
+<h3 id="defaults">Defaults</h3>
+<div class="highlight"><pre><span></span><code>Client(
+    account_id = &quot;&quot;, 
+    api_token = &quot;&quot;,
+    is_paper_trading = True,
+)
+</code></pre></div>
+<h3 id="required-string-account_id">REQUIRED String: account_id</h3>
+<p>This is the account number you get from Oanda API. You can find it in <a href="https://trade.oanda.com">Oanda Web</a> after signing in. The primary account number is the one you want, and it looks something like:
+<div class="highlight"><pre><span></span><code>Client().account_id = &quot;000-000-0000000-000&quot;
+</code></pre></div>
+Note the account_id is a string.
+<div class="highlight"><pre><span></span><code>client = Client()
+client.account_id = &quot;000-000-0000000-000&quot;
+</code></pre></div>
+You get 2 account ID's. Switch between demo and live mode in <a href="https://trade.oanda.com">Oanda Web</a> to access either. Either can be used, but later on, the demo account id must be used with the demo api token. Be sure you know which goes with which.</p>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Mixing Live and Demo Account ID's</p>
+<p>Mixing a demo account id and a live api token and vice versa will result in a 400 status code. Be sure you use the demo account id with the demo api token.</p>
+</div>
+<h3 id="required-string-api_token">REQUIRED String: api_token</h3>
+<p>This is the api token you get for access to the Oanda REST API. You can get it two ways:</p>
+<ul>
+<li>Either find it in <a href="https://www.oanda.com/account/tpa/personal_token">Manage API Access | Oanda</a> after signing in,</li>
+<li>Or click API in <a href="https://trade.oanda.com">Oanda Web</a>.</li>
+</ul>
+<p>Both take you to the same place, really.</p>
+<div class="highlight"><pre><span></span><code>Client().api_token = &quot;7f544b72a6a537cbfe8fc1630d0b5be9-9773f3d9e2a2be0c89236625cb3b2f6d&quot;
+</code></pre></div>
+<p>Note the api_token is a string just like account_id</p>
+<div class="highlight"><pre><span></span><code>client = Client()
+client.api_token = &quot;7f544b72a6a537cbfe8fc1630d0b5be9-9773f3d9e2a2be0c89236625cb3b2f6d&quot;
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Mixing Live and Demo API Tokens</p>
+<p>Just like the warning in the account_id section, mixing a demo account id and a live api token or vice versa will result in a 400 status code.</p>
+</div>
+<h3 id="string-base_url">String: base_url</h3>
+<p><strong>Don't touch this.</strong> It is automatically generated by the is_paper_trading argument. It's one of two things depending in if you are trading with real money or fake "paper" money.</p>
+<p>If is_paper_trading is True, then
+<div class="highlight"><pre><span></span><code>Client().base_url = &quot;https://api-fxpractice.oanda.com&quot;
+</code></pre></div></p>
+<p>Otherwise is_paper_trading is False, and
+<div class="highlight"><pre><span></span><code>Client().base_url = &quot;https://api-fxtrade.oanda.com&quot;
+</code></pre></div></p>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Editing base_url</p>
+<p>Editing this property may result in a malformed URL, and Oanda will return a 400 status code. There are only two correct base URLs.</p>
+</div>
+<h3 id="dictionary-header">Dictionary: header</h3>
+<p><strong>Don't touch this either.</strong> The header is automatically generated when the api token is set, and gets passed with the REST API call to Oanda when you call a method in the SDK that sends a request to Oanda.</p>
+<p>The header is a dictionary like this, where API_TOKEN is the api token that you generated: 
+<div class="highlight"><pre><span></span><code>{
+    &#39;Content-Type&#39;: &#39;application/json&#39;,
+    &#39;Authorization&#39;: &#39;Bearer API_TOKEN&#39;,
+}
+</code></pre></div></p>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Malformed Header</p>
+<p>A malformed header will result in a 400 status code from Oanda.</p>
+</div>
+<h3 id="boolean-is_paper_trading">Boolean: is_paper_trading</h3>
+<p>This is here to make setting the base url easier.</p>
+<p><div class="highlight"><pre><span></span><code>Client().is_paper_trading = False
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>client = Client()
+client.is_paper_trading = False
+</code></pre></div></p>
+<div class="admonition danger">
+<p class="admonition-title">400 Status Code: Mixing Paper Trading with Live Account ID's and Headers</p>
+<p>Setting is_paper_trading to True, and using a live account_id or api_token will result in a 400 status code.</p>
+</div>
+<h2 id="methods">Methods</h2>
+<p>These are the currently supported functions that instances of Client Class can 
+call.</p>
+<h3 id="set_account_id">set_account_id()</h3>
+<div class="highlight"><pre><span></span><code>Client().set_account_id(ACCOUNT_ID)
+</code></pre></div>
+<h3 id="set_api_token">set_api_token()</h3>
+<div class="highlight"><pre><span></span><code>Client().set_api_token(API_TOKEN)
+</code></pre></div>
+<h3 id="set_is_paper_trading">set_is_paper_trading()</h3>
+<div class="highlight"><pre><span></span><code>Client().set_is_paper_trading(False)
+</code></pre></div>
+<h3 id="set_header">set_header()</h3>
+<p><strong>Never Call this function.</strong> This gets called automatically when set_api_token() is called.
+<div class="highlight"><pre><span></span><code>Client().set_header()
+</code></pre></div></p>
+<h3 id="set_base_url">set_base_url()</h3>
+<p><strong>Never call this function.</strong> This gets called automatically when set_api_token()
+is called.
+<div class="highlight"><pre><span></span><code>Client().set_base_url(ACCOUNT_ID)
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../account/" class="md-footer__link md-footer__link--next" aria-label="Next: Account Class" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Account Class
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
