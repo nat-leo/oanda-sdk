@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "oanda"
-version = "0.0.1"
+name = "oanda_sdk"
+version = "1.0.3"
 authors = [
   { name="Nat Liu", email="n8wyliu@gmail.com" },
 ]
@@ -18,5 +18,4 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://nat-leo.github.io/oanda-sdk/"

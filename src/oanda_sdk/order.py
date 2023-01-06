@@ -24,7 +24,7 @@ class Order:
     def get_orders(self, instrument):
         path = f"/v3/accounts/{self.client.account_id}/orders"
         params = {
-           ("instrumen", instrument)
+           ("instrument", instrument)
         }
         response = requests.get(self.client.base_url+path, headers=self.client.header, params=params)
         return response

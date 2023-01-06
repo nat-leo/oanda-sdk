@@ -1,4 +1,4 @@
-from oanda.account import Account
+from oanda_sdk.account import Account
 
 # WARNING: FLAKY TESTS
 # tests for the Account object are all flaky, since they test whether

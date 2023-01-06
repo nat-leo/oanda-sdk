@@ -23,7 +23,7 @@ class Client:
     def set_header(self, api_token: str) -> None:
         self.header = {
             'Content-Type': 'application/json',
-            'Authorization': f'Bearer {api_token}',
+            'Authorization': api_token,
         }
 
     # CODE SMELL

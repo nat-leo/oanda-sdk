@@ -1,8 +1,7 @@
-from plistlib import load
 import pytest
 import os
 from dotenv import load_dotenv
-from oanda.client import Client
+from oanda_sdk.client import Client
 
 @pytest.fixture
 def client():
