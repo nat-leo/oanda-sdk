@@ -2,7 +2,7 @@
 
 ## Welcome to the API Reference for Oanda-SDK!
 
-Oanda-SDK is built to be an exact mapping of the REST api for [Oanda](https://developer.oanda.com). Here you'll find a reference of Oanda-SDK's classes, properties, and methods in great detail. 
+Oanda-SDK is a third-party tool built to be an exact mapping of the REST api for [Oanda](https://developer.oanda.com). Here you'll find a reference of Oanda-SDK's classes, properties, and methods in great detail. 
 
 Check out [Getting Started](../getting-started.md) for a installation, walk-through, and a broad overview of the project, or read on for a deep dive into Oanda-SDK.
 

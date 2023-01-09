@@ -1,6 +1,6 @@
 # Oanda-SDK
 
-A wrapper for the Oanda REST API.
+A third-party wrapper for the Oanda REST API.
 
 ```
 pip install oanda-sdk
