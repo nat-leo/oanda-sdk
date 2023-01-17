@@ -157,7 +157,7 @@ Getting the list of tradeable instruments as JSON:
 # trust me you don't want to see the output
 ```
 
-### get_changes(transaction_id)
+### get_changes()
 Get a list of changes in account holdings after and not including a given transaction id, as well as the current state of the account.
 
 Takes a required transaction_id as a string.

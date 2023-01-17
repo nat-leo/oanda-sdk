@@ -149,29 +149,25 @@ These are the currently supported functions that instances of Client Class can
 call.
 
 ### set_account_id()
+
+Set which account you'd like to buy and sell currencies as.
+
 ```
 Client().set_account_id(ACCOUNT_ID)
 ```
 
 ### set_api_token()
+
+Set your api token for the account you're working with.
+
 ```
 Client().set_api_token(API_TOKEN)
 ```
 
 ### set_is_paper_trading()
+
+Use fake money instead of real money from your Oanda account.
+
 ```
 Client().set_is_paper_trading(False)
-```
-
-### set_header()
-**Never Call this function.** This gets called automatically when set_api_token() is called.
-```
-Client().set_header()
-```
-
-### set_base_url()
-**Never call this function.** This gets called automatically when set_api_token()
-is called.
-```
-Client().set_base_url(ACCOUNT_ID)
 ```

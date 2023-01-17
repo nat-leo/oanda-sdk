@@ -12,6 +12,7 @@ nav:
         - Overview: api/overview.md
         - Client Class: api/client.md
         - Account Class: api/account.md
+        - Instrument Class: api/instrument.md
 
 theme:
   name: material
