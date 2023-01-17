@@ -5,7 +5,7 @@ class Instrument:
         self.client = client
 
     # Get pricing data formatted as candlestick data: highest price, lowest price, opening price, and closing price.
-    def get_candles(self, instrument, price="M", granularity="S5", count="500", from_datetime=None, to_datetime=None, smooth=False, include_first=True, daily_alignment="17", alignment_timezone="America/New_York", weekly_alignment="Friday"):
+    def get_candles(self, instrument, price="M", granularity="S5", count="500", from_datetime=None, to_datetime=None, smooth=False, include_first=None, daily_alignment="17", alignment_timezone="America/New_York", weekly_alignment="Friday"):
         path = f"/v3/instruments/{instrument}/candles"
         params = (
             ("price", price),
@@ -14,11 +14,12 @@ class Instrument:
             ("granularity", granularity),
             ("count", count),
             ("smooth", smooth),
-            ("includeFirst", include_first),
             ("dailyAlignment", daily_alignment),
             ("alignmentTimezone", alignment_timezone),
             ("weeklyAlignment", weekly_alignment)
         )
+        if include_first:
+            params.append(("includeFirst", include_first))
         response = requests.get(self.client.base_url+path, headers=self.client.header, params=params)
         return response
 
